@@ -6,7 +6,7 @@ from PIL import Image
 from torch.autograd import Variable
 from torchvision import transforms
 
-from config import msd_path
+from config import msd_test_path
 from misc import check_mkdir, crf_refine, AvgMeter, cal_precision_recall_mae, cal_fmeasure
 from model import R3Net
 
@@ -34,7 +34,7 @@ to_pil = transforms.ToPILImage()
 
 # now only test for some pics from msra10k
 # to_test = {'ecssd': ecssd_path, 'hkuis': hkuis_path, 'pascal': pascals_path, 'sod': sod_path, 'dutomron': dutomron_path}
-to_test = {'msd' : msd_path}
+to_test = {'msd' : msd_test_path}
 
 def main():
     net = R3Net().cuda()
