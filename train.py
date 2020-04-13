@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 
 import joint_transforms
-from config import msra10k_path
+from config import msd_path
 from datasets import ImageFolder
 from misc import AvgMeter, check_mkdir
 from model import R3Net
@@ -45,7 +45,7 @@ img_transform = transforms.Compose([
 ])
 target_transform = transforms.ToTensor()
 
-train_set = ImageFolder(msra10k_path, joint_transform, img_transform, target_transform)
+train_set = ImageFolder(msd_path, joint_transform, img_transform, target_transform)
 train_loader = DataLoader(train_set, batch_size=args['train_batch_size'], num_workers=12, shuffle=True)
 
 criterion = nn.BCEWithLogitsLoss().cuda()
